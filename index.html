@@ -18,13 +18,21 @@
 			<p class="warnmessage1 hidden">Enter your name</p>
 			<input type="email" name="Email" id="Email" placeholder="Enter your Email" >
 			<p class="warnmessage2 hidden">Enter a valid Email address</p>
-			<input type="password" name="password" id="password" placeholder="Create Password" required>
-			<p class="warnmessage3 hidden">Password must be more than 8 char</p>
-			<input type="checkbox" id="checkbox">
-			<input type="password" name="confirmpassword" id="confirmPassword" placeholder="Confirm-password">
+			
+			<input type="password" name="password" id="password" placeholder="Create Password" required ><input type="checkbox" id="checkbox">
+			<div id="message">
+				<h3>Password must contain the following:</h3>
+				<p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                 <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                  <p id="number" class="invalid">A <b>number</b></p>
+              <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+			</div>
+			<input type="password" name="confirmpassword" id="confirmPassword" placeholder="Confirm-password" >
 			
 		
-			<button class="submitBtn">Register Now</button>
+			<button class="submitBtn" type="submit">Register Now</button>
+			<a href=""></a>
+			
 	</form>
 
 	<script src="form.js"></script>
