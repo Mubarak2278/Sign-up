@@ -86,7 +86,7 @@ p {
   width: 15px;
   margin-top: -48px;
   margin-left: 340px;
-  position: fixed;
+  position: absolute;
 }
 
 #message {

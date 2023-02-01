@@ -17,14 +17,12 @@ const mailEnding = '@gmail.com';
 const viewResult = document.querySelector('.display-result');
 
 // NAME
-function checkName() {
-  if (nameOne.onfocus) {
-    warnMessage1.classList.add('hidden');
-    nameOne.style.border = '';
-  }
-  return;
-}
-checkName();
+
+nameOne.onfocus = function () {
+  warnMessage1.classList.add('hidden');
+  nameOne.style.border = '';
+};
+
 // nameOne.onfocus = function () {
 //   warnMessage1.classList.add('hidden');
 //   nameOne.style.border = '';
