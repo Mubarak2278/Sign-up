@@ -4,7 +4,7 @@ const nameOne = document.getElementById('name');
 const Email = document.getElementById('Email');
 const password = document.getElementById('password');
 const secondPass = document.querySelector('#confirmPassword');
-const checkbox = document.getElementById('checkbox');
+const showPassword = document.getElementById('eyes');
 const submitBtn = document.querySelector('.submitBtn');
 const warnMessage1 = document.querySelector('.warnmessage1');
 const warnMessage2 = document.querySelector('.warnmessage2');
@@ -13,7 +13,10 @@ const letters = document.getElementById('letter');
 const capital = document.getElementById('capital');
 const number = document.getElementById('number');
 const char = document.getElementById('length');
-const mailEnding = '@gmail.com';
+// const mailEnding1 = '@gmail.com';
+// const mailEnding2 = '@gyahoo.com';
+// const mailEnding3 = '@outlook.com';
+
 const viewResult = document.querySelector('.display-result');
 
 // NAME
@@ -86,15 +89,24 @@ password.onkeyup = function () {
   warnMessage3.style.display = 'block';
   checkPassword();
 };
-/// CHECKBOX
-checkbox.addEventListener('click', function () {
-  if (password.type === 'password') {
+// Show Password
+let state = false;
+showPassword.addEventListener('click', function () {
+  if (state) {
     password.type = 'text';
-    password.style.border = '1px solid rgb(56, 90, 238)';
+    showPassword.style.color = '#7a797e';
   } else {
     password.type = 'password';
-    password.style.border = '';
+    showPassword.style.color = 'rgb(56, 90, 238)';
   }
+  state = !state;
+  // if (password.type === 'password') {
+  //   password.type = 'text';
+  //   state = false;
+  // } else {
+  //   password.type = 'password';
+  //   state = true;
+  //   }
 });
 // CONFIRM PASSWORD
 secondPass.onfocus = function () {
@@ -110,28 +122,30 @@ function confirmPassword() {
 }
 
 // SUBMITTING FORM
+warnMessage3.style.display = 'none';
 submitBtn.addEventListener('click', function (e) {
   e.preventDefault();
+
   if (
-    nameOne.value !== '' &&
-    Email.value.endsWith(mailEnding) &&
+    Email.value.endsWith('@gmail.com') &&
+    nameOne !== '' &&
     password.value.length > 8 &&
     password.value === secondPass.value
   ) {
     const func = () => {
-      warnMessage3.style.display = 'none';
       form.submit();
       console.log('ok');
     };
+
     setTimeout(func, 3 * 1000);
-    // submitBtn.classList.add('hidden2');
+    submitBtn.classList.add('hidden2');
     // window.location.assign('result.html');
 
     console.log(nameOne.value);
   } else if (nameOne.value === '') {
     nameOne.style.border = '2px solid red';
     warnMessage1.classList.remove('hidden');
-  } else if (!Email.value.endsWith(mailEnding)) {
+  } else if (!Email.value.endsWith('@gmail.com') || Email.value === '') {
     warnMessage2.classList.remove('hidden');
     Email.style.border = '2px solid red';
   }
